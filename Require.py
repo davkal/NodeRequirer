@@ -53,7 +53,7 @@ class RequireCommand(sublime_plugin.TextCommand):
         self.files.append(file_name)
 
   def parse_package_json(self):
-    package = os.path.join(self.project_folder, 'package.json')
+    package = os.path.join(self.project_folder, 'bower.json')
 
     f = open(package, 'r')
     package_json = json.load(f)
@@ -84,12 +84,7 @@ class RequireInsertHelperCommand(sublime_plugin.TextCommand):
       extension = module_name[:-extension_index]
       module_name = module_name[:extension_index]
 
-
-    if 'models' in module:
-      module_name = module_name.capitalize()
-
-    if 'collections' in module:
-      module_name = module_name.capitalize()
+    module_name = module_name.capitalize()
 
     if module_name == 'index':
       temp_module = module[:5 + len(extension) + 1]
