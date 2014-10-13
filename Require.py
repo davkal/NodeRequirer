@@ -47,8 +47,7 @@ class RequireCommand(sublime_plugin.TextCommand):
           if file_name == os.path.basename(self.view.file_name()):
             continue
 
-          if '/' not in file_name:
-            file_name = "./%s" % file_name
+          file_name = "./%s" % file_name
 
         self.files.append(file_name)
 
